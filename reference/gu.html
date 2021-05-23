@@ -293,7 +293,8 @@ Rhythms</em>, <em>18</em>(1), 80-90. doi: <a href='https://doi.org/10.1177/07487
 <code><a href='tbt.html'>tbt</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## __ Scalar example __</span>
+    <pre class="examples"><div class='input'><span class='co'>## Scalar example</span>
+
 <span class='fu'>gu</span><span class='op'>(</span><span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"08:00"</span><span class='op'>)</span>, <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dminutes</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 08:10:00</div><div class='input'><span class='co'>#&gt; 08:10:00 # Expected</span>
 <span class='fu'>gu</span><span class='op'>(</span><span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"11:45"</span><span class='op'>)</span>, <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dminutes</a></span><span class='op'>(</span><span class='fl'>90</span><span class='op'>)</span><span class='op'>)</span>
@@ -301,7 +302,8 @@ Rhythms</em>, <em>18</em>(1), 80-90. doi: <a href='https://doi.org/10.1177/07487
 <span class='fu'>gu</span><span class='op'>(</span><span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/hms.html'>as_hms</a></span><span class='op'>(</span><span class='cn'>NA</span><span class='op'>)</span>, <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dminutes</a></span><span class='op'>(</span><span class='fl'>90</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; NA</div><div class='input'><span class='co'>#&gt; NA # Expected</span>
 
-<span class='co'>## __ Vector example __</span>
+<span class='co'>## Vector example</span>
+
 <span class='va'>se</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"12:30"</span><span class='op'>)</span>, <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"23:45"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>si</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dminutes</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>, <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dminutes</a></span><span class='op'>(</span><span class='fl'>70</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'>gu</span><span class='op'>(</span><span class='va'>se</span>, <span class='va'>si</span><span class='op'>)</span>

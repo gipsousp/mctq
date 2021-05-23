@@ -153,9 +153,9 @@ micro, and shift versions of the Munich Chronotype Questionnaire (MCTQ).</p>
 <p><code>sjl_rel()</code> it's just a wrapper for <code>sjl()</code> with <code>abs = FALSE</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>sjl</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span>, abs <span class='op'>=</span> <span class='cn'>TRUE</span>, method <span class='op'>=</span> <span class='st'>"shortest"</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>sjl</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span>, abs <span class='op'>=</span> <span class='cn'>TRUE</span>, method <span class='op'>=</span> <span class='st'>"shorter"</span><span class='op'>)</span>
 
-<span class='fu'>sjl_rel</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span>, method <span class='op'>=</span> <span class='st'>"shortest"</span><span class='op'>)</span></pre>
+<span class='fu'>sjl_rel</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span>, method <span class='op'>=</span> <span class='st'>"shorter"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -181,7 +181,7 @@ return an absolute social jetlag (default: <code>TRUE</code>).</p></td>
       <th>method</th>
       <td><p>(optional) a string indicating which method the function must
 use to compute the social jetlag. See the Methods section to learn
-more (default: <code>"shortest"</code>).</p></td>
+more (default: <code>"shorter"</code>).</p></td>
     </tr>
     </table>
 
@@ -284,8 +284,8 @@ morning shift; \(E\) = evening shift; \(N\) = night shift.</p>
 
 
 <p>There are different approaches to compute the social jetlag (\(SJL\)). By
-default, <code>sjl()</code> uses an approach that we call "the shortest interval
-approach" (<code>"shortest"</code>).</p>
+default, <code>sjl()</code> uses an approach that we call "the shorter interval
+approach" (<code>"shorter"</code>).</p>
 <p>The topics below provide a simple explanation of each method supported by
 <code>sjl()</code>. To get a detail understating of this methods, see
 <code><a href='../articles/sjl.html'>vignette("sjl", package = "mctq")</a></code>.</p>
@@ -301,17 +301,17 @@ package may include it.</p><ul>
 proposed by the MCTQ authors, <em>i.e.</em>, \(SJL\) will be computed as the linear
 difference between \(MSF\) and \(MSW\) (see the Guidelines section).</p>
 <p><strong>We do not recommend using this method</strong>, as it has many limitations.</p><ul>
-<li><p><code>"shortest"</code></p></li>
+<li><p><code>"shorter"</code></p></li>
 </ul>
 
-<p>This is the default method for <code>sjl()</code>. It's based on the shortest
+<p>This is the default method for <code>sjl()</code>. It's based on the shorter
 interval between \(MSW\) and \(MSF\), solving most of the issues
 relating to \(SJL\) computation.</p><ul>
 <li><p><code>"longer"</code></p></li>
 </ul>
 
-<p>The <code>"longer"</code> method uses the same logic of the <code>"shortest"</code> method, but,
-instead of using the shortest interval between \(MSW\) and \(MSF\), it
+<p>The <code>"longer"</code> method uses the same logic of the <code>"shorter"</code> method, but,
+instead of using the shorter interval between \(MSW\) and \(MSF\), it
 uses the longer interval between the two, considering a two-day window.</p>
 <p>This method may help with special contexts, like when dealing with
 shift-workers that have a greater than 12 hours distance between their
@@ -383,7 +383,8 @@ Rhythms</em>, <em>18</em>(1), 80-90. doi: <a href='https://doi.org/10.1177/07487
 <code><a href='tbt.html'>tbt</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## __ Scalar example __</span>
+    <pre class="examples"><div class='input'><span class='co'>## Scalar example</span>
+
 <span class='va'>msw</span> <span class='op'>&lt;-</span> <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"03:30"</span><span class='op'>)</span>
 <span class='va'>msf</span> <span class='op'>&lt;-</span> <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"05:00"</span><span class='op'>)</span>
 <span class='fu'>sjl</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span><span class='op'>)</span>
@@ -407,7 +408,8 @@ Rhythms</em>, <em>18</em>(1), 80-90. doi: <a href='https://doi.org/10.1177/07487
 <span class='fu'>sjl</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] NA</div><div class='input'><span class='co'>#&gt; [1] NA # Expected</span>
 
-<span class='co'>## __ Vector example __</span>
+<span class='co'>## Vector example</span>
+
 <span class='va'>msw</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"02:05"</span><span class='op'>)</span>, <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"04:05"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>msf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"23:05"</span><span class='op'>)</span>, <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"04:05"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'>sjl</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span><span class='op'>)</span>
@@ -417,12 +419,13 @@ Rhythms</em>, <em>18</em>(1), 80-90. doi: <a href='https://doi.org/10.1177/07487
 <span class='fu'>sjl_rel</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span><span class='op'>)</span> <span class='co'># Wrapper function</span>
 </div><div class='output co'>#&gt; [1] "-10800s (~-3 hours)" "0s"                 </div><div class='input'><span class='co'>#&gt; [1] "-10800s (~-3 hours)" "0s" # Expected</span>
 
-<span class='co'>## __ Using different methods __</span>
+<span class='co'>## Using different methods</span>
+
 <span class='va'>msw</span> <span class='op'>&lt;-</span> <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"19:15"</span><span class='op'>)</span>
 <span class='va'>msf</span> <span class='op'>&lt;-</span> <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"02:30"</span><span class='op'>)</span>
 <span class='fu'>sjl</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span>, abs <span class='op'>=</span> <span class='cn'>FALSE</span>, method <span class='op'>=</span> <span class='st'>"difference"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "-60300s (~-16.75 hours)"</div><div class='input'><span class='co'>#&gt; [1] "-60300s (~-16.75 hours)" # Expected</span>
-<span class='fu'>sjl</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span>, abs <span class='op'>=</span> <span class='cn'>FALSE</span>, method <span class='op'>=</span> <span class='st'>"shortest"</span><span class='op'>)</span> <span class='co'># default method</span>
+<span class='fu'>sjl</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span>, abs <span class='op'>=</span> <span class='cn'>FALSE</span>, method <span class='op'>=</span> <span class='st'>"shorter"</span><span class='op'>)</span> <span class='co'># default method</span>
 </div><div class='output co'>#&gt; [1] "26100s (~7.25 hours)"</div><div class='input'><span class='co'>#&gt; [1] "26100s (~7.25 hours)" # Expected</span>
 <span class='fu'>sjl</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span>, abs <span class='op'>=</span> <span class='cn'>FALSE</span>, method <span class='op'>=</span> <span class='st'>"longer"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "-60300s (~-16.75 hours)"</div><div class='input'><span class='co'>#&gt; [1] "-60300s (~-16.75 hours)" # Expected</span>
@@ -431,12 +434,12 @@ Rhythms</em>, <em>18</em>(1), 80-90. doi: <a href='https://doi.org/10.1177/07487
 <span class='va'>msf</span> <span class='op'>&lt;-</span> <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"04:15"</span><span class='op'>)</span>
 <span class='fu'>sjl</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span>, abs <span class='op'>=</span> <span class='cn'>FALSE</span>, method <span class='op'>=</span> <span class='st'>"difference"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "5400s (~1.5 hours)"</div><div class='input'><span class='co'>#&gt; [1] "5400s (~1.5 hours)" # Expected</span>
-<span class='fu'>sjl</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span>, abs <span class='op'>=</span> <span class='cn'>FALSE</span>, method <span class='op'>=</span> <span class='st'>"shortest"</span><span class='op'>)</span> <span class='co'># default method</span>
+<span class='fu'>sjl</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span>, abs <span class='op'>=</span> <span class='cn'>FALSE</span>, method <span class='op'>=</span> <span class='st'>"shorter"</span><span class='op'>)</span> <span class='co'># default method</span>
 </div><div class='output co'>#&gt; [1] "5400s (~1.5 hours)"</div><div class='input'><span class='co'>#&gt; [1] "5400s (~1.5 hours)" # Expected</span>
 <span class='fu'>sjl</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span>, abs <span class='op'>=</span> <span class='cn'>FALSE</span>, method <span class='op'>=</span> <span class='st'>"longer"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "-81000s (~-22.5 hours)"</div><div class='input'><span class='co'>#&gt; [1] "-81000s (~-22.5 hours)" # Expected</span>
 
-<span class='co'>## __ Converting the output to `hms` __</span>
+<span class='co'>## Converting the output to `hms`</span>
 <span class='va'>msw</span> <span class='op'>&lt;-</span> <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"01:15"</span><span class='op'>)</span>
 <span class='va'>msf</span> <span class='op'>&lt;-</span> <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"03:25"</span><span class='op'>)</span>
 <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>sjl</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span><span class='op'>)</span>
@@ -445,7 +448,7 @@ Rhythms</em>, <em>18</em>(1), 80-90. doi: <a href='https://doi.org/10.1177/07487
 <span class='fu'><a href='convert.html'>convert</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='st'>"hms"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 02:10:00</div><div class='input'><span class='co'>#&gt; 02:10:00 # Expected</span>
 
-<span class='co'>## __ Rounding the output at the seconds level __</span>
+<span class='co'>## Rounding the output at the seconds level</span>
 <span class='va'>msw</span> <span class='op'>&lt;-</span> <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hms</a></span><span class='op'>(</span><span class='st'>"04:19:33.1234"</span><span class='op'>)</span>
 <span class='va'>msf</span> <span class='op'>&lt;-</span> <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hms</a></span><span class='op'>(</span><span class='st'>"02:55:05"</span><span class='op'>)</span>
 <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>sjl</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span><span class='op'>)</span>

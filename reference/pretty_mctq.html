@@ -204,7 +204,7 @@ standard. For more information see <code><a href='round_time.html'>?round_time</
 <code><a href='random_mctq.html'>random_mctq</a>()</code>,
 <code><a href='raw_data.html'>raw_data</a>()</code>,
 <code><a href='round_time.html'>round_time</a>()</code>,
-<code><a href='shortest_interval.html'>shortest_interval</a>()</code>,
+<code><a href='shorter_interval.html'>shorter_interval</a>()</code>,
 <code><a href='sum_time.html'>sum_time</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -214,11 +214,13 @@ standard. For more information see <code><a href='round_time.html'>?round_time</
     c <span class='op'>=</span> <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/period.html'>period</a></span><span class='op'>(</span><span class='fl'>1.12345</span><span class='op'>)</span>,
     d <span class='op'>=</span> <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/hms.html'>hms</a></span><span class='op'>(</span><span class='fl'>1.12345</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='co'>## __ Rounding time objects from `data` __</span>
+<span class='co'>## Rounding time objects from `data`</span>
+
 <span class='fu'>pretty_mctq</span><span class='op'>(</span><span class='va'>data</span>, round <span class='op'>=</span> <span class='cn'>TRUE</span>, hms <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;   a  b  c        d
 #&gt; 1 1 1s 1S 00:00:01</div><div class='input'>
-<span class='co'>## __ Converting non-`hms` time objects from `data` to `hms` __</span>
+<span class='co'>## Converting non-`hms` time objects from `data` to `hms`</span>
+
 <span class='fu'>pretty_mctq</span><span class='op'>(</span><span class='va'>data</span>, round <span class='op'>=</span> <span class='cn'>FALSE</span>, hms <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;   a              b              c              d
 #&gt; 1 1 00:00:01.12345 00:00:01.12345 00:00:01.12345</div></pre>

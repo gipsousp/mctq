@@ -518,11 +518,12 @@ O'Reilly Media. Retrieved from <a href='https://r4ds.had.co.nz'>https://r4ds.had
 <code><a href='random_mctq.html'>random_mctq</a>()</code>,
 <code><a href='raw_data.html'>raw_data</a>()</code>,
 <code><a href='round_time.html'>round_time</a>()</code>,
-<code><a href='shortest_interval.html'>shortest_interval</a>()</code>,
+<code><a href='shorter_interval.html'>shorter_interval</a>()</code>,
 <code><a href='sum_time.html'>sum_time</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## __ Converting from date/time objects to units __</span>
+    <pre class="examples"><div class='input'><span class='co'>## Converting from date/time objects to units</span>
+
 <span class='fu'>convert</span><span class='op'>(</span><span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dhours</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='st'>"numeric"</span>, output_unit <span class='op'>=</span> <span class='st'>"M"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 60</div><div class='input'><span class='co'>#&gt; [1] 60 # Expected</span>
 <span class='fu'>convert</span><span class='op'>(</span><span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/period.html'>days</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='st'>"numeric"</span>, output_unit <span class='op'>=</span> <span class='st'>"rad"</span><span class='op'>)</span>
@@ -536,7 +537,8 @@ O'Reilly Media. Retrieved from <a href='https://r4ds.had.co.nz'>https://r4ds.had
 <span class='fu'>convert</span><span class='op'>(</span><span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"15:45:00"</span><span class='op'>)</span>, <span class='st'>"numeric"</span>, output_unit <span class='op'>=</span> <span class='st'>"H"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 15.75</div><div class='input'><span class='co'>#&gt; [1] 15.75 # Expected</span>
 
-<span class='co'>## __ Converting from units to date/time objects __</span>
+<span class='co'>## Converting from units to date/time objects</span>
+
 <span class='fu'>convert</span><span class='op'>(</span><span class='fl'>360</span>, <span class='st'>"Period"</span>, input_unit <span class='op'>=</span> <span class='st'>"deg"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "1d 0H 0M 0S"</div><div class='input'><span class='co'>#&gt; [1] "1d 0H 0M 0S" # Expected</span>
 <span class='fu'>convert</span><span class='op'>(</span><span class='fl'>6.5</span>, <span class='st'>"POSIXct"</span>, input_unit <span class='op'>=</span> <span class='st'>"H"</span><span class='op'>)</span>
@@ -548,7 +550,8 @@ O'Reilly Media. Retrieved from <a href='https://r4ds.had.co.nz'>https://r4ds.had
 <span class='fu'>convert</span><span class='op'>(</span><span class='fl'>1.308997</span>, <span class='st'>"Duration"</span>, input_unit <span class='op'>=</span> <span class='st'>"rad"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "18000s (~5 hours)"</div><div class='input'><span class='co'>#&gt; [1] "18000s (~5 hours)" # Expected</span>
 
-<span class='co'>## __ Converting between date/time objects __</span>
+<span class='co'>## Converting between date/time objects</span>
+
 <span class='fu'>convert</span><span class='op'>(</span><span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dseconds</a></span><span class='op'>(</span><span class='fl'>120</span><span class='op'>)</span>, <span class='st'>"hms"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 00:02:00</div><div class='input'><span class='co'>#&gt; 00:02:00 # Expected</span>
 <span class='fu'>convert</span><span class='op'>(</span><span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/hms.html'>as_hms</a></span><span class='op'>(</span><span class='st'>"13:45:05"</span><span class='op'>)</span>, <span class='st'>"POSIXct"</span><span class='op'>)</span>
@@ -561,7 +564,8 @@ O'Reilly Media. Retrieved from <a href='https://r4ds.had.co.nz'>https://r4ds.had
 <span class='fu'>convert</span><span class='op'>(</span><span class='va'>x</span>, <span class='st'>"POSIXct"</span>, tz <span class='op'>=</span> <span class='st'>"UTC"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "2020-01-01 12:31:05 UTC"</div><div class='input'><span class='co'>#&gt; [1] "2020-01-01 12:31:05 UTC" # Expected</span>
 
-<span class='co'>## __ Converting between units __</span>
+<span class='co'>## Converting between units</span>
+
 <span class='fu'>convert</span><span class='op'>(</span><span class='fl'>1.308997</span>, <span class='st'>"numeric"</span>, input_unit <span class='op'>=</span> <span class='st'>"rad"</span>, output_unit <span class='op'>=</span> <span class='st'>"H"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 5</div><div class='input'><span class='co'>#&gt; [1] 5 # Expected</span>
 <span class='fu'>convert</span><span class='op'>(</span><span class='fl'>60</span>, <span class='st'>"numeric"</span>, input_unit <span class='op'>=</span> <span class='st'>"deg"</span>, output_unit <span class='op'>=</span> <span class='st'>"rad"</span><span class='op'>)</span>
@@ -573,7 +577,8 @@ O'Reilly Media. Retrieved from <a href='https://r4ds.had.co.nz'>https://r4ds.had
 <span class='fu'>convert</span><span class='op'>(</span><span class='fl'>40</span>, <span class='st'>"numeric"</span>, input_unit <span class='op'>=</span> <span class='st'>"d"</span>, output_unit <span class='op'>=</span> <span class='st'>"deg"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 14400</div><div class='input'><span class='co'>#&gt; [1] 14400 # Expected</span>
 
-<span class='co'>## __ Converting from 'character' or 'numeric' to date/time objects __</span>
+<span class='co'>## Converting from 'character' or 'numeric' to date/time objects</span>
+
 <span class='fu'>convert</span><span class='op'>(</span><span class='st'>"19:55:17"</span>, <span class='st'>"Duration"</span>, orders <span class='op'>=</span> <span class='st'>"HMS"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "71717s (~19.92 hours)"</div><div class='input'><span class='co'>#&gt; [1] "71717s (~19.92 hours)" # Expected</span>
 <span class='fu'>convert</span><span class='op'>(</span><span class='st'>"21:00"</span>, <span class='st'>"Period"</span>, orders <span class='op'>=</span> <span class='st'>"HM"</span><span class='op'>)</span>
@@ -591,7 +596,8 @@ O'Reilly Media. Retrieved from <a href='https://r4ds.had.co.nz'>https://r4ds.had
 <span class='fu'>convert</span><span class='op'>(</span><span class='st'>"03/07/1982 13:00"</span>, <span class='st'>"POSIXlt"</span>, orders <span class='op'>=</span> <span class='st'>"dmy HM"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "1982-07-03 13:00:00 UTC"</div><div class='input'><span class='co'>#&gt; [1] "1982-07-03 13:00:00 UTC" # Expected</span>
 
-<span class='co'>## __ Converting from 'character' or 'numeric' objects to units __</span>
+<span class='co'>## Converting from 'character' or 'numeric' objects to units</span>
+
 <span class='fu'>convert</span><span class='op'>(</span><span class='st'>"0145"</span>, <span class='st'>"numeric"</span>, orders <span class='op'>=</span> <span class='st'>"HM"</span>, output_unit <span class='op'>=</span> <span class='st'>"M"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 105</div><div class='input'><span class='co'>#&gt; [1] 105 # Expected</span>
 <span class='fu'>convert</span><span class='op'>(</span><span class='fl'>45</span>, <span class='st'>"numeric"</span>, orders <span class='op'>=</span> <span class='st'>"M"</span>, output_unit <span class='op'>=</span> <span class='st'>"H"</span><span class='op'>)</span>
@@ -603,7 +609,8 @@ O'Reilly Media. Retrieved from <a href='https://r4ds.had.co.nz'>https://r4ds.had
 <span class='fu'>convert</span><span class='op'>(</span><span class='st'>"01:00"</span>, <span class='st'>"numeric"</span>, orders <span class='op'>=</span> <span class='st'>"HM"</span>, output_unit <span class='op'>=</span> <span class='st'>"rad"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 0.2617994</div><div class='input'><span class='co'>#&gt; [1] 0.261799 # Expected</span>
 
-<span class='co'>## __ Converting columns of a data frame __</span>
+<span class='co'>## Converting columns of a data frame</span>
+
 <span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>a <span class='op'>=</span> <span class='fl'>1</span>, b <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
 <span class='va'>data</span>
 </div><div class='output co'>#&gt;   a b

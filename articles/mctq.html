@@ -111,12 +111,12 @@
 <h2 class="hasAnchor">
 <a href="#first-things-first" class="anchor"></a>First things first</h2>
 <p>Let’s start with the basics. The first thing you must do to use <code>mctq</code> is to have some MCTQ data and <code>mctq</code> installed and loaded.</p>
-<p>To install a GitHub package you’re going to need the <a href="https://devtools.r-lib.org/">devtools</a> package. If you don’t already have it installed, just type the following command in your console.</p>
+<p>To install a GitHub package you’re going to need the <a href="https://remotes.r-lib.org/">remotes</a> package. If you don’t already have it installed, just type the following command in your console.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></code></pre></div>
 <p>After <code>devtools</code> is installed, install <code>mctq</code> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"gipsousp/mctq"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"gipsousp/mctq"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>Great! We now must load the package to memory to start using it. Do this with:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gipsousp.github.io/mctq/">mctq</a></span><span class="op">)</span></code></pre></div>
@@ -171,7 +171,7 @@
 <p>Note that you can always convert your data back to the original format if you want.</p>
 <p>You can also use <code><a href="../reference/convert.html">convert()</a></code> to convert data frame columns directly. That’s what we’re going to do with our data.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
 
 <span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/convert.html">convert</a></span><span class="op">(</span><span class="st">"integer"</span>, cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"wd"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -216,7 +216,6 @@
 <code class="sourceCode R"><span class="va">data</span><span class="op">$</span><span class="va">fd</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fd.html">fd</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">wd</span><span class="op">)</span>
 
 <span class="co"># Comparing the result</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
 <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">wd</span>, <span class="va">fd</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 5 x 2</span>
 <span class="co">#&gt;      wd    fd</span>
@@ -532,7 +531,7 @@
 <li>
 <code><a href="../reference/round_time.html">round_time()</a></code>: Round time values</li>
 <li>
-<code><a href="../reference/shortest_interval.html">shortest_interval()</a></code>: Find the shortest interval between two hours</li>
+<code><a href="../reference/shorter_interval.html">shorter_interval()</a></code>: Find the shorter interval between two hours</li>
 <li>
 <code><a href="../reference/sum_time.html">sum_time()</a></code>: Sum time objects</li>
 </ul>

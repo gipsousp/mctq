@@ -299,7 +299,8 @@ Rhythms</em>, <em>18</em>(1), 80-90. doi: <a href='https://doi.org/10.1177/07487
 <code><a href='tbt.html'>tbt</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## __ Scalar example __</span>
+    <pre class="examples"><div class='input'><span class='co'>## Scalar example</span>
+
 <span class='va'>sjl</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>sjl_m <span class='op'>=</span> <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dhours</a></span><span class='op'>(</span><span class='fl'>1.25</span><span class='op'>)</span>,
             sjl_e <span class='op'>=</span> <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dhours</a></span><span class='op'>(</span><span class='fl'>0.5</span><span class='op'>)</span>,
             sjl_n <span class='op'>=</span> <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dhours</a></span><span class='op'>(</span><span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>
@@ -314,7 +315,8 @@ Rhythms</em>, <em>18</em>(1), 80-90. doi: <a href='https://doi.org/10.1177/07487
 <span class='fu'>sjl_weighted</span><span class='op'>(</span><span class='va'>sjl</span>, <span class='va'>n_w</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] NA</div><div class='input'><span class='co'>#&gt; [1] NA # Expected</span>
 
-<span class='co'>## __ Vector example __</span>
+<span class='co'>## Vector example</span>
+
 <span class='va'>sjl</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>sjl_m <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dhours</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span>, <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dhours</a></span><span class='op'>(</span><span class='fl'>2.45</span><span class='op'>)</span><span class='op'>)</span>,
             sjl_e <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dhours</a></span><span class='op'>(</span><span class='fl'>3.21</span><span class='op'>)</span>, <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/as.duration.html'>as.duration</a></span><span class='op'>(</span><span class='cn'>NA</span><span class='op'>)</span><span class='op'>)</span>,
             sjl_n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dhours</a></span><span class='op'>(</span><span class='fl'>1.2</span><span class='op'>)</span>, <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dhours</a></span><span class='op'>(</span><span class='fl'>5.32</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
@@ -322,7 +324,8 @@ Rhythms</em>, <em>18</em>(1), 80-90. doi: <a href='https://doi.org/10.1177/07487
 <span class='fu'>sjl_weighted</span><span class='op'>(</span><span class='va'>sjl</span>, <span class='va'>n_w</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "8298s (~2.31 hours)" NA                   </div><div class='input'><span class='co'>#&gt; [1] "8298s (~2.31 hours)" NA # Expected</span>
 
-<span class='co'>## __ Checking the first output from vector example __</span>
+<span class='co'>## Checking the first output from vector example</span>
+
 <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/ns-load.html'>requireNamespace</a></span><span class='op'>(</span><span class='st'>"stats"</span>, quietly <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
     <span class='va'>i</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>
     <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>sjl</span><span class='op'>[[</span><span class='st'>"sjl_m"</span><span class='op'>]</span><span class='op'>]</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>, <span class='va'>sjl</span><span class='op'>[[</span><span class='st'>"sjl_e"</span><span class='op'>]</span><span class='op'>]</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>, <span class='va'>sjl</span><span class='op'>[[</span><span class='st'>"sjl_n"</span><span class='op'>]</span><span class='op'>]</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>)</span>
@@ -331,7 +334,8 @@ Rhythms</em>, <em>18</em>(1), 80-90. doi: <a href='https://doi.org/10.1177/07487
 <span class='op'>}</span>
 </div><div class='output co'>#&gt; [1] "8298s (~2.31 hours)"</div><div class='input'><span class='co'>#&gt; [1] "8298s (~2.31 hours)" # Expected</span>
 
-<span class='co'>## __ Converting the output to hms __</span>
+<span class='co'>## Converting the output to hms</span>
+
 <span class='va'>sjl</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>sjl_m <span class='op'>=</span> <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dhours</a></span><span class='op'>(</span><span class='fl'>0.25</span><span class='op'>)</span>,
             sjl_e <span class='op'>=</span> <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dhours</a></span><span class='op'>(</span><span class='fl'>1.2</span><span class='op'>)</span>,
             sjl_n <span class='op'>=</span> <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dhours</a></span><span class='op'>(</span><span class='fl'>4.32</span><span class='op'>)</span><span class='op'>)</span>
@@ -341,7 +345,8 @@ Rhythms</em>, <em>18</em>(1), 80-90. doi: <a href='https://doi.org/10.1177/07487
 <span class='fu'><a href='convert.html'>convert</a></span><span class='op'>(</span><span class='fu'>sjl_weighted</span><span class='op'>(</span><span class='va'>sjl</span>, <span class='va'>n_w</span><span class='op'>)</span>, <span class='st'>"hms"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 01:06:10.285714</div><div class='input'><span class='co'>#&gt; 01:06:10.285714 # Expected</span>
 
-<span class='co'>## __ Rounding the output at the seconds level __</span>
+<span class='co'>## Rounding the output at the seconds level</span>
+
 <span class='fu'><a href='round_time.html'>round_time</a></span><span class='op'>(</span><span class='fu'>sjl_weighted</span><span class='op'>(</span><span class='va'>sjl</span>, <span class='va'>n_w</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "3970s (~1.1 hours)"</div><div class='input'><span class='co'>#&gt; [1] "3970s (~1.1 hours)" # Expected</span>
 <span class='fu'><a href='round_time.html'>round_time</a></span><span class='op'>(</span><span class='fu'><a href='convert.html'>convert</a></span><span class='op'>(</span><span class='fu'>sjl_weighted</span><span class='op'>(</span><span class='va'>sjl</span>, <span class='va'>n_w</span><span class='op'>)</span>, <span class='st'>"hms"</span><span class='op'>)</span><span class='op'>)</span>

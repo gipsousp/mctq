@@ -267,16 +267,18 @@ it must be considered when doing time arithmetic.</p>
 <code><a href='random_mctq.html'>random_mctq</a>()</code>,
 <code><a href='raw_data.html'>raw_data</a>()</code>,
 <code><a href='round_time.html'>round_time</a>()</code>,
-<code><a href='shortest_interval.html'>shortest_interval</a>()</code></p></div>
+<code><a href='shorter_interval.html'>shorter_interval</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## __ Linear non-vectorized sum __</span>
+    <pre class="examples"><div class='input'><span class='co'>## Linear non-vectorized sum</span>
+
 <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/as.POSIXlt.html'>as.POSIXct</a></span><span class='op'>(</span><span class='st'>"2020-01-01 15:00:00"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/as.POSIXlt.html'>as.POSIXct</a></span><span class='op'>(</span><span class='st'>"1999-05-04 17:30:00"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/as.interval.html'>as.interval</a></span><span class='op'>(</span><span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dhours</a></span><span class='op'>(</span><span class='fl'>7</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='st'>"1970-05-08"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'>sum_time</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, class <span class='op'>=</span> <span class='st'>"duration"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "142200s (~1.65 days)"</div><div class='input'><span class='co'>#&gt; [1] "142200s (~1.65 days)" # Expected</span>
 
-<span class='co'>## __ Non-vectorized sum in a circular time frame of 24 hours __</span>
+<span class='co'>## Non-vectorized sum in a circular time frame of 24 hours</span>
+
 <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/period.html'>hours</a></span><span class='op'>(</span><span class='fl'>25</span><span class='op'>)</span>, <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dhours</a></span><span class='op'>(</span><span class='fl'>5</span><span class='op'>)</span>, <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/period.html'>minutes</a></span><span class='op'>(</span><span class='fl'>50</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'>sum_time</span><span class='op'>(</span><span class='va'>x</span>, circular <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 06:50:00</div><div class='input'><span class='co'>#&gt; 06:50:00 # Expected</span>
@@ -287,7 +289,8 @@ it must be considered when doing time arithmetic.</p>
 <span class='fu'>sum_time</span><span class='op'>(</span><span class='va'>x</span>, circular <span class='op'>=</span> <span class='cn'>TRUE</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 02:45:00</div><div class='input'><span class='co'>#&gt; 02:45:00 # Expected</span>
 
-<span class='co'>## __ Linear vectorized sum __</span>
+<span class='co'>## Linear vectorized sum</span>
+
 <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dhours</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>)</span>, <span class='cn'>NA</span><span class='op'>)</span>
 <span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"23:00"</span><span class='op'>)</span>, <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"10:00"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'>sum_time</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, vectorize <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
@@ -299,7 +302,8 @@ it must be considered when doing time arithmetic.</p>
 #&gt; 10:00:00</div><div class='input'><span class='co'>#&gt; 29:00:00 # Expected</span>
 <span class='co'>#&gt; 10:00:00 # Expected</span>
 
-<span class='co'>## __ Vectorized sum in a circular time frame of 24 hours __</span>
+<span class='co'>## Vectorized sum in a circular time frame of 24 hours</span>
+
 <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/duration.html'>dhours</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>)</span>, <span class='cn'>NA</span><span class='op'>)</span>
 <span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"23:00"</span><span class='op'>)</span>, <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"10:00"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'>sum_time</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, circular <span class='op'>=</span> <span class='cn'>TRUE</span>, vectorize <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
