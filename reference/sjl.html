@@ -93,7 +93,7 @@ sjl_rel() it's just a wrapper for sjl() with abs = FALSE." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mctq</a>
-        <span class="version label label-warning" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.0.0.9000</span>
+        <span class="version label label-warning" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.0.0.9001</span>
       </span>
     </div>
 
@@ -440,6 +440,7 @@ Rhythms</em>, <em>18</em>(1), 80-90. doi: <a href='https://doi.org/10.1177/07487
 </div><div class='output co'>#&gt; [1] "-81000s (~-22.5 hours)"</div><div class='input'><span class='co'>#&gt; [1] "-81000s (~-22.5 hours)" # Expected</span>
 
 <span class='co'>## Converting the output to `hms`</span>
+
 <span class='va'>msw</span> <span class='op'>&lt;-</span> <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"01:15"</span><span class='op'>)</span>
 <span class='va'>msf</span> <span class='op'>&lt;-</span> <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hm</a></span><span class='op'>(</span><span class='st'>"03:25"</span><span class='op'>)</span>
 <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>sjl</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span><span class='op'>)</span>
@@ -449,6 +450,7 @@ Rhythms</em>, <em>18</em>(1), 80-90. doi: <a href='https://doi.org/10.1177/07487
 </div><div class='output co'>#&gt; 02:10:00</div><div class='input'><span class='co'>#&gt; 02:10:00 # Expected</span>
 
 <span class='co'>## Rounding the output at the seconds level</span>
+
 <span class='va'>msw</span> <span class='op'>&lt;-</span> <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hms</a></span><span class='op'>(</span><span class='st'>"04:19:33.1234"</span><span class='op'>)</span>
 <span class='va'>msf</span> <span class='op'>&lt;-</span> <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/parse_hms.html'>parse_hms</a></span><span class='op'>(</span><span class='st'>"02:55:05"</span><span class='op'>)</span>
 <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>sjl</span><span class='op'>(</span><span class='va'>msw</span>, <span class='va'>msf</span><span class='op'>)</span>

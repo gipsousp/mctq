@@ -92,7 +92,7 @@ POSIXlt object and round its numeric value at the ones place." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mctq</a>
-        <span class="version label label-warning" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.0.0.9000</span>
+        <span class="version label label-warning" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.0.0.9001</span>
       </span>
     </div>
 
@@ -146,12 +146,21 @@ POSIXlt object and round its numeric value at the ones place." />
     </div>
 
     <div class="ref-description">
-    <p><a href='https://lifecycle.r-lib.org/articles/stages.html#maturing'><img src='figures/lifecycle-maturing.svg' alt='[Maturing]' /></a></p>
+    <p><a href='https://lifecycle.r-lib.org/articles/stages.html#experimental'><img src='figures/lifecycle-experimental.svg' alt='[Experimental]' /></a></p>
 <p><code>round_time()</code> takes a <code>Duration</code>, <code>Period</code>, <code>difftime</code>, <code>hms</code>, <code>POSIXct</code>, or
 <code>POSIXlt</code> object and round its <code>numeric</code> value at the ones place.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>round_time</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>round_time</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># S3 method for default</span>
+<span class='fu'>round_time</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># S3 method for difftime</span>
+<span class='fu'>round_time</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># S3 method for hms</span>
+<span class='fu'>round_time</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -169,10 +178,29 @@ POSIXlt object and round its numeric value at the ones place." />
 at the ones place.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>round_time()</code> uses <code><a href='https://rdrr.io/r/base/Round.html'>base::round()</a></code> for rounding. That is to say that
+    
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Deprecation notice</h3>
+
+
+<p><code>vctrs</code> support was added to the <a href='http://lubridate.tidyverse.org/reference/lubridate-package.html'>lubridate</a>
+package with its 1.7.9 version (see the pull
+<a href='https://github.com/tidyverse/lubridate/pull/871'>here</a>). This resolves
+issues when rounding <code>Duration</code>, <code>Period</code>, <code>Interval</code>, and <code>POSIXt</code> objects
+to the ones place with the round function.</p>
+<p>It looks like the <a href='https://hms.tidyverse.org/reference/hms-package.html'>hms</a> will also add <code>vctrs</code> support
+following its 1.0.0 version (learn more
+<a href='https://github.com/tidyverse/hms/issues/18'>here</a>). When this occurs,
+<code>round_time()</code> functionality will no longer be needed and the function will
+be removed from the <code>mctq</code> package.</p>
+
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Round standard</h3>
+
+
+<p><code>round_time()</code> uses <code><a href='https://rdrr.io/r/base/Round.html'>base::round()</a></code> for rounding. That is to say that
 <code>round_time()</code> uses the same IEC 60559 standard (<em>"go to the even digit"</em>)
 for rounding off a 5. Therefore, <code><a href='https://rdrr.io/r/base/Round.html'>round(0.5)</a></code> is equal to 0 and <code><a href='https://rdrr.io/r/base/Round.html'>round(-1.5)</a></code>
 is equal to -2. See <code><a href='https://rdrr.io/r/base/Round.html'>?round</a></code> to learn more.</p>
+
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other date-time rounding functions: <code><a href='https://hms.tidyverse.org/reference/round_hms.html'>hms::round_hms()</a></code>
@@ -198,12 +226,12 @@ is equal to -2. See <code><a href='https://rdrr.io/r/base/Round.html'>?round</a>
 <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/period.html'>microseconds</a></span><span class='op'>(</span><span class='fl'>123456789</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "123.456789S"</div><div class='input'><span class='co'>#&gt; [1] "123.456789S" # Expected</span>
 <span class='fu'>round_time</span><span class='op'>(</span><span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/period.html'>microseconds</a></span><span class='op'>(</span><span class='fl'>123456789</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "2M 3S"</div><div class='input'><span class='co'>#&gt; [1] "123S" # Expected</span>
+</div><div class='output co'>#&gt; [1] "123S"</div><div class='input'><span class='co'>#&gt; [1] "123S" # Expected</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/difftime.html'>as.difftime</a></span><span class='op'>(</span><span class='fl'>12345.6789</span>, units <span class='op'>=</span> <span class='st'>"hours"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Time difference of 12345.68 hours</div><div class='input'><span class='co'>#&gt; Time difference of 12345.68 hours # Expected</span>
-<span class='fu'>round_time</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/difftime.html'>as.difftime</a></span><span class='op'>(</span><span class='fl'>12345.6789</span>, units <span class='op'>=</span> <span class='st'>"hours"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Time difference of 12346 hours</div><div class='input'><span class='co'>#&gt; Time difference of 12346 hours # Expected</span>
+<span class='fu'><a href='https://rdrr.io/r/base/difftime.html'>as.difftime</a></span><span class='op'>(</span><span class='fl'>12345.6789</span>, units <span class='op'>=</span> <span class='st'>"secs"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Time difference of 12345.68 secs</div><div class='input'><span class='co'>#&gt; Time difference of 12345.68 secs # Expected</span>
+<span class='fu'>round_time</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/difftime.html'>as.difftime</a></span><span class='op'>(</span><span class='fl'>12345.6789</span>, units <span class='op'>=</span> <span class='st'>"secs"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Time difference of 12346 secs</div><div class='input'><span class='co'>#&gt; Time difference of 12346 secs # Expected</span>
 
 <span class='fu'>hms</span><span class='fu'>::</span><span class='fu'><a href='https://hms.tidyverse.org/reference/hms.html'>as_hms</a></span><span class='op'>(</span><span class='fl'>12345.6789</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 03:25:45.6789</div><div class='input'><span class='co'>#&gt; 03:25:45.6789 # Expected</span>
