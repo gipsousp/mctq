@@ -199,8 +199,8 @@ work-free days</strong> from a standard, micro, or shift version of the MCTQ
 questionnaire. Note that, if <code>alarm_f == TRUE</code>, <code>msf_sc</code> cannot be
 computed, <code>msf_sc()</code> will return <code>NA</code> for those cases. For the
 \(\mu\)MCTQ, this value must be set as <code>FALSE</code> all times, since the
-questionnaire considers only the work-free days when the subject does not
-use an alarm.</p></td>
+questionnaire considers only the work-free days when the respondent does
+not use an alarm.</p></td>
     </tr>
     </table>
 
@@ -214,7 +214,7 @@ local time of mid-sleep on work-free days.</p>
 Roenneberg, Wirz-Justice, &amp; Merrow (2003), Roenneberg, Allebrandt, Merrow, &amp;
 Vetter (2012), and from The Worldwide Experimental Platform (theWeP, n.d.).</p>
 <p><strong>\(\mu\)MCTQ</strong> functions were created following the guidelines in Ghotbi
-<em>et.al</em> (2020), in addition to the guidelines used for the standard MCTQ.</p>
+et al. (2020), in addition to the guidelines used for the standard MCTQ.</p>
 <p><strong>MCTQ\(^{Shift}\)</strong> functions were created following the
 guidelines in Juda, Vetter, &amp; Roenneberg (2013), in addition to the
 guidelines used for the standard MCTQ.</p>
@@ -230,11 +230,11 @@ conform to the object classes required, you can use the <code>mctq</code>
 <h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Rounding and fractional time</h3>
 
 
-<p>Some operations may produce an output with fractional time (<em>e.g.</em>,
+<p>Some operations may produce an output with fractional time (e.g.,
 <code>"19538.3828571429s (~5.43 hours)"</code>; <code>01:15:44.505</code>). If you want, you
 can round it with the <code>mctq</code> function <code><a href='round_time.html'>round_time()</a></code>.</p>
 <p>Our recommendation is to avoid rounding, but, if you do, make sure that you
-only round your values after all computations are done, that way you can
+only round your values after all computations are done. That way you can
 avoid <a href='https://en.wikipedia.org/wiki/Round-off_error'>round-off errors</a>.</p>
 
     <h2 class="hasAnchor" id="guidelines"><a class="anchor" href="#guidelines"></a>Guidelines</h2>
@@ -242,7 +242,7 @@ avoid <a href='https://en.wikipedia.org/wiki/Round-off_error'>round-off errors</
     
 
 
-<p>Roenneberg, Allebrandt, Merrow, &amp; Vetter (2012), Ghotbi <em>et.al</em> (2020), Juda,
+<p>Roenneberg, Allebrandt, Merrow, &amp; Vetter (2012), Ghotbi et al. (2020), Juda,
 Vetter, &amp; Roenneberg (2013), and The Worldwide Experimental Platform (n.d.)
 guidelines for <code>msf_sc()</code> (\(MSF_{sc}\)) computation are as
 follows.</p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Notes</h3>
@@ -257,11 +257,11 @@ standard and micro versions of the MCTQ.</p></li>
 <li><p>The basis for estimating chronotype in shift-workers is the mid-sleep on
 work-free days after evening shifts (\(MSF^E\)). In case work
 schedules do not comprise evening shifts, Juda, Vetter, &amp; Roenneberg (2013)
-propose to derive it from the \(MSF_{sc}\) of other shifts (<em>e.g.</em>,
+propose to derive it from the \(MSF_{sc}\) of other shifts (e.g.,
 by using a linear model). Unfortunately, the <code>mctq</code> package can't help you
 with that, as it requires a closer look at your data.</p></li>
 <li><p>\(MSF_{sc}\) depends on developmental and environmental
-conditions (<em>e.g.</em>, age, light exposure). For epidemiological and genetic
+conditions (e.g., age, light exposure). For epidemiological and genetic
 studies, \(MSF_{sc}\) must be normalized for age and sex to make
 populations of different age and sex compositions comparable (Roenneberg,
 Allebrandt, Merrow, &amp; Vetter, 2012).</p></li>
@@ -311,7 +311,7 @@ morning shift; \(E\) = evening shift; \(N\) = night shift.</p>
     
 
 
-<p>Although the standard and micro versions of the MCTQ asks for subjects to
+<p>Although the standard and micro versions of the MCTQ asks for respondents to
 complete the workdays and work-free days sections, even when they do not
 have a regular work schedule (<code>wd = 0</code>) or have a 7 day/week work schedule
 (<code>wd = 7</code>), some of them may still end skipping one of this parts of the
@@ -323,7 +323,7 @@ variables.</p>
 missing, a <code>NA</code> value is the correct output for the functions mentioned above
 when <code>wd</code> (number of workdays per week) are <code>wd &gt; 0 &amp; wd &lt; 7</code>, but it may not
 be when <code>wd == 0</code> or <code>wd == 7</code>. There are different approaches to deal with
-those cases. See <code><a href='../articles/missing-sections.html'>vignette("missing-sections", package = "mctq")</a></code> to learn
+this issue. See <code><a href='../articles/missing-sections.html'>vignette("missing-sections", package = "mctq")</a></code> to learn
 more.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 

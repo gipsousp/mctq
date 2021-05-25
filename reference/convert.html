@@ -348,7 +348,7 @@ days or 31557600 seconds).</p></td>
       <th>close_round</th>
       <td><p>(optional) a <code>logical</code> value indicating if numbers with
 decimals starting with three leading 0s or 9s must be rounded
-(<em>e.g.</em>, 1.999) (default: <code>TRUE</code>).</p></td>
+(e.g., 1.999) (default: <code>TRUE</code>).</p></td>
     </tr>
     <tr>
       <th>quiet</th>
@@ -440,7 +440,7 @@ output unit. Conversions of date/time objects only need the latter.</p>
 <code>numeric</code> objects to date/time. Since <code>parse_date_time()</code> outputs a <code>POSIXct</code>
 object, <code>character</code> and <code>numeric</code> inputs cannot have time values equal or
 greater than 24 hours.</p>
-<p>That limits the set of <code>convert()</code> applications (<em>e.g</em>, when you want to
+<p>That limits the set of <code>convert()</code> applications (e.g., when you want to
 parse a <code>character</code> to a <code>Duration</code> object of 35 hours). To get around this,
 some exceptions were made to <code>orders</code> <strong>equal</strong> to <code>"H"</code>, <code>"M"</code>, <code>"S"</code>,
 <code>"HM"</code>, or <code>"HMS"</code>. For <code>"HM"</code> and <code>"HMS"</code> exceptions, minutes and seconds
@@ -454,7 +454,7 @@ allocated between hours and minutes.</p>
 made with the help of <code><a href='https://dplyr.tidyverse.org/reference/mutate.html'>dplyr::mutate()</a></code>.</p>
 <p>Operations with data frames are only column-wise and can be made by selecting
 specific columns (using the <code>col</code> argument) or a group of columns (by
-applying a flag function (<em>e.g</em> <code>is.numeric</code>) in the <code>where</code> argument).</p>
+applying a flag function (e.g., <code>is.numeric</code>) in the <code>where</code> argument).</p>
 
 <h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Different outputs</h3>
 
@@ -474,11 +474,11 @@ unit. See the Examples section to know how.</p><ul>
 
 <p><code>convert()</code> will return a <code><a href='https://rdrr.io/r/base/numeric.html'>base::as.numeric()</a></code> output if <code>class</code> is set to
 <code>"numeric"</code> or <code>"double"</code>. For <code>Date</code> objects, the output will be the total
-of days since '1970-01-01' (UNIX epoch date). For date-time objects (<em>e.g.</em>,
+of days since '1970-01-01' (UNIX epoch date). For date-time objects (e.g.,
 <code>POSIXt</code>), the output will be the total of seconds from the UNIX epoch
 (<code>1970-01-01 00:00:00 UTC</code>) (See
 <a href='https://en.wikipedia.org/wiki/Unix_time'>Unix time</a> to learn more). For time
-objects, (<em>e.g.</em>, <code>hms</code>) the output will be the total of seconds.</p>
+objects, (e.g., <code>hms</code>) the output will be the total of seconds.</p>
 <p>The output <code>class = "numeric"</code> can also be different if <code>input_unit</code> and
 <code>output_unit</code> are assigned.</p><ul>
 <li><p><code>Interval</code> objects</p></li>

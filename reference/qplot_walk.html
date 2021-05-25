@@ -254,17 +254,29 @@ converts <code>Duration</code>, <code>Period</code>, and <code>difftime</code> o
 
 
 <p>Time variables with values greater than <code>22:00:00</code> will automatically be
-converted to <code>POSIXct</code> with a midday change, <em>i.e.</em>, all values with more
-than 12 hours will represent day one, and all the rest will represent day 2.
-This is made to better represent values that cross the midnight
-hour.</p>
-<p>You can disable this behavior using <code>midday_change = FALSE</code>.</p>
+converted to <code>POSIXct</code> and be attached to a two-day timeline using the midday
+hour as a cutting point, i.e., all values with 12 hours or more will be
+placed on day 1, and all the rest will be placed on day 2.</p>
+<p>This is made to better represent time vectors that cross the midnight hour.
+You can disable this behavior by using <code>midday_change = FALSE</code>.</p>
+<p>Example: Say you have a vector of time values that cross the midnight hour
+(e.g., an <code>hms</code> vector with <code>22:00</code>, <code>23:00</code>, <code>00:00</code>, <code>01:00</code> values). If
+you use <code>midday_change = FALSE</code>, your data will be represented linearly.</p><pre>00:00 01:00                                22:00 23:00
+  |-----|------------------------------------|-----|-------&gt;
+</pre>
+
+<p>By using <code>midday_change = TRUE</code> (default), <code>qplot_walk()</code> will fit your data
+to a circular time frame of 24 hours.</p><pre>             day 1                         day 2
+                22:00 23:00 00:00 01:00
+------------------|-----|-----|-----|----------------------&gt;
+</pre>
+
 
 <h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a><code>id</code> variables</h3>
 
 
 <p><code>qplot_walk()</code> will ignore any variable with the follow name pattern
-<code>"^id$|[\\._-]id$"</code>, <em>i.e</em> any variable named <code>id</code> or that ends with
+<code>"^id$|[\\._-]id$"</code>, i.e. any variable named <code>id</code> or that ends with
 <code>.id</code>, <code>_id</code>, or <code>-id</code>.</p>
 <p>You can disable this behavior using <code>remove_id = FALSE</code>.</p>
 

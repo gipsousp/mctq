@@ -171,7 +171,7 @@ sections to learn more.</p>
     <p>A tibble with 128 columns and 50
 rows:</p>
 <dl>
-<dt>id</dt><dd><p>A unique <code>integer</code> value to identify each subject in the dataset.
+<dt>id</dt><dd><p>A unique <code>integer</code> value to identify each respondent in the dataset.
 <br /> <br />
 Type: Control.
 <br /> <br />
@@ -238,8 +238,8 @@ Type: Computed.
 <br /> <br />
 R class: <code>hms</code>.</p></dd>
 
-<dt>alarm_w_m</dt><dd><p>A <code>logical</code> value indicating if the subject uses an alarm clock to wake up
-on workdays <strong>between two morning shifts</strong>.
+<dt>alarm_w_m</dt><dd><p>A <code>logical</code> value indicating if the respondent uses an alarm clock to wake
+up on workdays <strong>between two morning shifts</strong>.
 <br /> <br />
 Statement (<code>EN</code>): "I wake up at ___ o'clock: ( ___ ) with alarm ( ___ )
 without alarm".
@@ -248,8 +248,8 @@ Type: Basic.
 <br /> <br />
 R class: <code>logical</code>.</p></dd>
 
-<dt>reasons_w_m</dt><dd><p>A <code>logical</code> value indicating if the subject has any particular reasons for
-why they <strong>cannot</strong> freely choose their sleep times on workdays
+<dt>reasons_w_m</dt><dd><p>A <code>logical</code> value indicating if the respondent has any particular reasons
+for why they <strong>cannot</strong> freely choose their sleep times on workdays
 <strong>between two morning shifts</strong>.
 <br /> <br />
 Statement (<code>EN</code>): "There are particular reasons why I <strong>cannot</strong> freely
@@ -259,7 +259,7 @@ Type: Basic.
 <br /> <br />
 R class: <code>logical</code>.</p></dd>
 
-<dt>reasons_why_w_m</dt><dd><p>Particular reasons for why the subject cannot freely choose their sleep
+<dt>reasons_why_w_m</dt><dd><p>Particular reasons for why the respondent cannot freely choose their sleep
 times on workdays <strong>between two morning shifts</strong>.
 <br /> <br />
 Statement (<code>EN</code>): "If "Yes": Child(ren)/pet(s) ( ___ ) Hobbies ( ___ )
@@ -287,8 +287,8 @@ Type: Computed.
 <br /> <br />
 R class: <code>hms</code>.</p></dd>
 
-<dt>nap_w_m</dt><dd><p>A <code>logical</code> value indicating if the subject usually takes a nap on workdays
-<strong>between two morning shifts</strong>.
+<dt>nap_w_m</dt><dd><p>A <code>logical</code> value indicating if the respondent usually takes a nap on
+workdays <strong>between two morning shifts</strong>.
 <br /> <br />
 Statement (<code>EN</code>): "I usually take a nap: Yes ( ___ ) No ( ___ )".
 <br /> <br />
@@ -391,8 +391,8 @@ Type: Computed.
 <br /> <br />
 R class: <code>hms</code>.</p></dd>
 
-<dt>alarm_f_m</dt><dd><p>A <code>logical</code> value indicating if the subject uses an alarm clock to wake up
-on work-free days <strong>between two free days after morning shifts</strong>.
+<dt>alarm_f_m</dt><dd><p>A <code>logical</code> value indicating if the respondent uses an alarm clock to wake
+up on work-free days <strong>between two free days after morning shifts</strong>.
 <br /> <br />
 Statement (<code>EN</code>): "I wake up at ___ o'clock: ( ___ ) with alarm ( ___ )
 without alarm".
@@ -401,8 +401,8 @@ Type: Basic.
 <br /> <br />
 R class: <code>logical</code>.</p></dd>
 
-<dt>reasons_f_m</dt><dd><p>A <code>logical</code> value indicating if the subject has any particular reasons for
-why they <strong>cannot</strong> freely choose their sleep times on work-free days
+<dt>reasons_f_m</dt><dd><p>A <code>logical</code> value indicating if the respondent has any particular reasons
+for why they <strong>cannot</strong> freely choose their sleep times on work-free days
 <strong>between two free days after morning shifts</strong>.
 <br /> <br />
 Statement (<code>EN</code>): "There are particular reasons why I <strong>cannot</strong> freely
@@ -412,7 +412,7 @@ Type: Basic.
 <br /> <br />
 R class: <code>logical</code>.</p></dd>
 
-<dt>reasons_why_f_m</dt><dd><p>Particular reasons for why the subject cannot freely choose their sleep
+<dt>reasons_why_f_m</dt><dd><p>Particular reasons for why the respondent cannot freely choose their sleep
 times on work-free days <strong>between two free days after morning shifts</strong>.
 <br /> <br />
 Statement (<code>EN</code>): "If "Yes": Child(ren)/pet(s) ( ___ ) Hobbies ( ___ )
@@ -443,7 +443,7 @@ Type: Computed.
 <br /> <br />
 R class: <code>hms</code>.</p></dd>
 
-<dt>nap_f_m</dt><dd><p>A <code>logical</code> value indicating if the subject usually takes a nap on
+<dt>nap_f_m</dt><dd><p>A <code>logical</code> value indicating if the respondent usually takes a nap on
 work-free days <strong>between two free days after morning shifts</strong>.
 <br /> <br />
 Statement (<code>EN</code>): "I usually take a nap: Yes ( ___ ) No ( ___ )".
@@ -535,13 +535,13 @@ R class: <code>Duration</code>.</p></dd>
 
 
 <p>To learn more about the Munich Chronotype Questionnaire (MCTQ),
-<em>cf.</em> Roenneberg, Wirz-Justice, &amp; Merrow (2003), Roenneberg, Allebrandt,
-Merrow, &amp; Vetter (2012), Roenneberg <em>et al.</em> (2015), and Roenneberg, Pilz,
+see Roenneberg, Wirz-Justice, &amp; Merrow (2003), Roenneberg, Allebrandt,
+Merrow, &amp; Vetter (2012), Roenneberg et al. (2015), and Roenneberg, Pilz,
 Zerbini, &amp; Winnebeck (2019).</p>
-<p>To know about different MCTQ versions, <em>cf.</em> Juda, Vetter, &amp; Roenneberg
-(2013) and Ghotbi <em>et.al</em> (2020).</p>
+<p>To know about different MCTQ versions, see Juda, Vetter, &amp; Roenneberg
+(2013) and Ghotbi et al. (2020).</p>
 <p>If you're curious about variable computations and want to have access to
-the full questionnaire, <em>cf.</em> The Worldwide Experimental Platform (n.d.).</p>
+the full questionnaire, see The Worldwide Experimental Platform (n.d.).</p>
 
 <h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Data building and data wrangling</h3>
 

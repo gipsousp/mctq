@@ -211,7 +211,7 @@
 <h3 class="hasAnchor">
 <a href="#fd-number-of-work-free-days-per-week" class="anchor"></a><code>fd()</code>: Number of work-free days per week</h3>
 <p><code><a href="../reference/fd.html">fd()</a></code> is a simple function that allows you to compute the difference between the number of days in a week (7) and the number of workdays per week (<code>wd</code>). It takes only <code>wd</code> as argument.</p>
-<p>The output must be the total of free days a subject has in a week.</p>
+<p>The output must be the total of free days a respondent has in a week.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span><span class="op">$</span><span class="va">fd</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fd.html">fd</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">wd</span><span class="op">)</span>
 
@@ -251,7 +251,7 @@
 <a href="#gu-local-time-of-getting-out-of-bed" class="anchor"></a><code>gu()</code>: Local time of getting out of bed</h3>
 <p><code><a href="../reference/gu.html">gu()</a></code> allows you to compute the local time of getting out of bed for workdays (<code>gu_w</code>) and work-free days (<code>gu_f</code>). It takes two arguments: <code>se</code> (local time of sleep end) and <code>si</code> (sleep inertia).</p>
 <p>The output must be the sum of <code>se</code> and <code>si</code> in a circular time frame of 24 hours.</p>
-<p>Please note that, despite the name, <code>si</code> represents the time that the subject takes to get up after sleep end. We decided to maintain the original names and abbreviations proposed by the MCTQ authors.</p>
+<p>Please note that, despite the name, <code>si</code> represents the time that the respondent takes to get up after sleep end. We decided to maintain the original names and abbreviations proposed by the MCTQ authors.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span><span class="op">$</span><span class="va">gu_w</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gu.html">gu</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">se_w</span>, <span class="va">data</span><span class="op">$</span><span class="va">si_w</span><span class="op">)</span>
 <span class="va">data</span><span class="op">$</span><span class="va">gu_f</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gu.html">gu</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">se_f</span>, <span class="va">data</span><span class="op">$</span><span class="va">si_f</span><span class="op">)</span>
@@ -397,7 +397,7 @@
 <div id="msf_sc-chronotype-or-corrected-local-time-of-mid-sleep-on-work-free-days" class="section level3">
 <h3 class="hasAnchor">
 <a href="#msf_sc-chronotype-or-corrected-local-time-of-mid-sleep-on-work-free-days" class="anchor"></a><code>msf_sc()</code>: Chronotype or corrected local time of mid-sleep on work-free days</h3>
-<p><code><a href="../reference/msf_sc.html">msf_sc()</a></code> allows you to compute the chronotype, or corrected local time of mid-sleep on work-free days. It takes five arguments: <code>msf</code> (local time of mid-sleep on work-free days), <code>sd_w</code> (sleep duration on workdays), <code>sd_f</code> (sleep duration on work-free days), <code>sd_week</code>(average weekly sleep duration), and <code>alarm_f</code> (a <code>logical</code> object indicating if the subject uses an alarm clock to wake up on work-free days).</p>
+<p><code><a href="../reference/msf_sc.html">msf_sc()</a></code> allows you to compute the chronotype, or corrected local time of mid-sleep on work-free days. It takes five arguments: <code>msf</code> (local time of mid-sleep on work-free days), <code>sd_w</code> (sleep duration on workdays), <code>sd_f</code> (sleep duration on work-free days), <code>sd_week</code>(average weekly sleep duration), and <code>alarm_f</code> (a <code>logical</code> object indicating if the respondent uses an alarm clock to wake up on work-free days).</p>
 <p>If <code>sd_f</code> is less or equal than <code>sd_w</code>, the output must be <code>msf</code>. Else, it must return <code>msf</code> minus the difference between <code>sd_f</code> and <code>sd_week</code> divided by 2. <code>msf_sc</code> can only be computed if <code>alarm_f</code> is equal to <code>FALSE</code> (the function will return <code>NA</code> when <code>alarm_f == TRUE</code>).</p>
 <p><code>msf_sc</code> applies a correction to <code>msf</code>, removing an estimation of the effect from accumulated sleep debt on workdays that usually is compensated on work-free days. See <code><a href="../reference/msf_sc.html">?msf_sc</a></code> to learn more.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
@@ -422,7 +422,7 @@
 <a href="#sjl_rel-relative-social-jetlag" class="anchor"></a><code>sjl_rel()</code>: Relative social jetlag</h3>
 <p><code><a href="../reference/sjl.html">sjl_rel()</a></code> allows you to compute the relative social jetlag. It takes at least two arguments: <code>msw</code> (local time of mid-sleep on workdays) and <code>msf</code> (local time of mid-sleep on work-free days).</p>
 <p>The output must be the difference between <code>msf</code> and <code>msw</code> in a circular time frame of 24 hours.</p>
-<p>In case you don’t know, social jet lag is a concept developed by Till Roenneberg <em>et. al</em> (<a href="http://doi.org/10.1080/07420520500545979">2006</a>) that represents the discrepancy between social and biological time.</p>
+<p>In case you don’t know, social jet lag is a concept developed by Till Roenneberg et al. (<a href="http://doi.org/10.1080/07420520500545979">2006</a>) that represents the discrepancy between social and biological time.</p>
 <p>The difference described above may seem trivial or easy to compute, but it’s not. See the <code><a href="../articles/sjl.html">vignette("sjl", package = "mctq")</a></code> to learn more.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span><span class="op">$</span><span class="va">sjl_rel</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sjl.html">sjl_rel</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">msw</span>, <span class="va">data</span><span class="op">$</span><span class="va">msf</span><span class="op">)</span>

@@ -184,7 +184,7 @@ from a standard version of the MCTQ questionnaire.</p></td>
 Roenneberg, Wirz-Justice, &amp; Merrow (2003), Roenneberg, Allebrandt, Merrow, &amp;
 Vetter (2012), and from The Worldwide Experimental Platform (theWeP, n.d.).</p>
 <p><strong>\(\mu\)MCTQ</strong> functions were created following the guidelines in Ghotbi
-<em>et.al</em> (2020), in addition to the guidelines used for the standard MCTQ.</p>
+et al. (2020), in addition to the guidelines used for the standard MCTQ.</p>
 <p><strong>MCTQ\(^{Shift}\)</strong> functions were created following the
 guidelines in Juda, Vetter, &amp; Roenneberg (2013), in addition to the
 guidelines used for the standard MCTQ.</p>
@@ -200,11 +200,11 @@ conform to the object classes required, you can use the <code>mctq</code>
 <h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Rounding and fractional time</h3>
 
 
-<p>Some operations may produce an output with fractional time (<em>e.g.</em>,
+<p>Some operations may produce an output with fractional time (e.g.,
 <code>"19538.3828571429s (~5.43 hours)"</code>; <code>01:15:44.505</code>). If you want, you
 can round it with the <code>mctq</code> function <code><a href='round_time.html'>round_time()</a></code>.</p>
 <p>Our recommendation is to avoid rounding, but, if you do, make sure that you
-only round your values after all computations are done, that way you can
+only round your values after all computations are done. That way you can
 avoid <a href='https://en.wikipedia.org/wiki/Round-off_error'>round-off errors</a>.</p>
 
     <h2 class="hasAnchor" id="guidelines"><a class="anchor" href="#guidelines"></a>Guidelines</h2>
@@ -245,7 +245,7 @@ work ___ days per week").</p></li>
     
 
 
-<p>Although the standard and micro versions of the MCTQ asks for subjects to
+<p>Although the standard and micro versions of the MCTQ asks for respondents to
 complete the workdays and work-free days sections, even when they do not
 have a regular work schedule (<code>wd = 0</code>) or have a 7 day/week work schedule
 (<code>wd = 7</code>), some of them may still end skipping one of this parts of the
@@ -257,7 +257,7 @@ variables.</p>
 missing, a <code>NA</code> value is the correct output for the functions mentioned above
 when <code>wd</code> (number of workdays per week) are <code>wd &gt; 0 &amp; wd &lt; 7</code>, but it may not
 be when <code>wd == 0</code> or <code>wd == 7</code>. There are different approaches to deal with
-those cases. See <code><a href='../articles/missing-sections.html'>vignette("missing-sections", package = "mctq")</a></code> to learn
+this issue. See <code><a href='../articles/missing-sections.html'>vignette("missing-sections", package = "mctq")</a></code> to learn
 more.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
