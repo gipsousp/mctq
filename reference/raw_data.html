@@ -158,15 +158,20 @@ purposes. <code>raw_data()</code> makes it easy to access their paths.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>file</th>
-      <td><p>A string indicating the file name of the raw dataset. If <code>NULL</code>,
-all raw dataset file names will be printed (default: <code>NULL</code>).</p></td>
+      <td><p>(optional) a <code>character</code> object indicating the raw data file
+name(s). If <code>NULL</code>, all raw data file names will be printed (default:
+<code>NULL</code>).</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>If <code>path = NULL</code>, returns a <code>character</code> object with all raw dataset
-file names available. Else, it returns the <code>file</code> path.</p>
+    
+<ul>
+<li><p>If <code>file = NULL</code>, a <code>character</code> object with all file names available.</p></li>
+<li><p>If <code>file != NULL</code>, a string with the file name path.</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other utility functions: 
@@ -181,11 +186,11 @@ file names available. Else, it returns the <code>file</code> path.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## To list all raw dataset file names available</span>
+<span class='co'>## To list all raw data file names available</span>
 
 <span class='fu'>raw_data</span><span class='op'>(</span><span class='op'>)</span>
 
-<span class='co'>## To get the file path from a specific raw dataset</span>
+<span class='co'>## To get the file path from a specific raw data</span>
 
 <span class='fu'>raw_data</span><span class='op'>(</span><span class='fu'>raw_data</span><span class='op'>(</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
 
