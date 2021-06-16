@@ -111,19 +111,19 @@
 <h2 class="hasAnchor">
 <a href="#first-things-first" class="anchor"></a>First things first</h2>
 <p>Let’s start with the basics. The first thing you must do to use <code>mctq</code> is to have some MCTQ data and <code>mctq</code> installed and loaded.</p>
-<p>To install a GitHub package you’re going to need the <a href="https://remotes.r-lib.org/">remotes</a> package. If you don’t already have it installed, just type the following command in your console.</p>
+<p>To install a GitHub package you’re going to need the <a href="https://pak.r-lib.org/">pak</a> package. If you don’t already have it installed, just type the following command in your console.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></code></pre></div>
-<p>After <code>devtools</code> is installed, install <code>mctq</code> with:</p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span></code></pre></div>
+<p>After <code>pak</code> is installed, install <code>mctq</code> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"gipsousp/mctq"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="http://pak.r-lib.org/reference/pkg_install.html">pkg_install</a></span><span class="op">(</span><span class="st">"gipsousp/mctq"</span><span class="op">)</span></code></pre></div>
 <p>Great! We now must load the package to memory to start using it. Do this with:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gipsousp.github.io/mctq/">mctq</a></span><span class="op">)</span></code></pre></div>
 <p>Now we just need to get some MCTQ data. For demonstration purposes, we’re going to use a small and fictional raw standard MCTQ data provided by the <code>mctq</code> package.</p>
 <p>This dataset already has valid values. As for any data analysis, you must have clean and valid data before using any analysis tool. If you don’t know how to do that, we strongly recommend checking Hadley Wickham and Garrett Grolemund free and online book <a href="https://r4ds.had.co.nz/">R for data Science</a> and the Coursera course from John Hopkins University <a href="https://www.coursera.org/specializations/data-science-foundations-r">Data Science: Foundations using R</a> (free for audit students).</p>
 <p>Teaching you how to load your data in R is outside the scope of this article. For that, we recommend checking the <a href="https://readr.tidyverse.org/">readr</a> package from <a href="https://www.tidyverse.org/">tidyverse</a>.</p>
-<p>Our fictional MCTQ data will be generated with the code below. The naming of the variables follows the same naming scheme used in MCTQ publications. You can see the meaning of each variable by running <code><a href="../reference/std_mctq.html">?std_mctq</a></code>.</p>
+<p>Our fictional MCTQ data will be loaded with the code below. The naming of the variables follows the same naming scheme used in MCTQ publications. You can see the meaning of each variable by running <code><a href="../reference/std_mctq.html">?std_mctq</a></code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span>
 
