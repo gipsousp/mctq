@@ -119,7 +119,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/gipsousp/mctq/">
+  <a href="https://github.com/gipso/mctq/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -138,15 +138,43 @@
   <div class="col-md-9 contents">
     <div class="page-header">
       <h1 data-toc-skip>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/gipsousp/mctq/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+      <small>Source: <a href='https://github.com/gipso/mctq/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
     <div id="mctq-0009001" class="section level1">
 <h1 class="page-header" data-toc-text="0.0.0.9001">
 <a href="#mctq-0009001" class="anchor"></a>mctq 0.0.0.9001</h1>
+<div id="added" class="section level2">
+<h2 class="hasAnchor">
+<a href="#added" class="anchor"></a>Added</h2>
 <ul>
-<li>The DESCRIPTION file now requires a lubridate version &gt;= 1.7.9. <code>vctrs</code> support was added in this version, fixing some issues related to rounding <code>Duration</code>, <code>Period</code>, and <code>Interval</code> objects. Click <a href="https://github.com/tidyverse/lubridate/pull/871">here</a> to learn more.</li>
+<li>@jonkeane was added as a reviewer (‘rev’).</li>
+<li>@leocadio-miguel was added as a reviewer (‘rev’).</li>
+<li>The user interface has gotten more stylish, thanks to the <a href="https://cli.r-lib.org"><code>cli</code> package</a> (now on imports).</li>
 </ul>
+</div>
+<div id="changed" class="section level2">
+<h2 class="hasAnchor">
+<a href="#changed" class="anchor"></a>Changed</h2>
+<ul>
+<li>The DESCRIPTION file now requires a lubridate version <code>&gt;= 1.7.9</code>. <code>vctrs</code> support was added in this version, fixing some issues related to rounding <code>Duration</code>, <code>Period</code>, and <code>Interval</code> objects. Click <a href="https://github.com/tidyverse/lubridate/pull/871">here</a> to learn more.</li>
+<li>The DESCRIPTION file now requires a dplyr version <code>&gt;= 0.2</code>. That’s when the <code>dplyr</code> start to import the pipe operator. Click <a href="https://github.com/tidyverse/dplyr/blob/master/NEWS.md#piping">here</a> to learn more.</li>
+<li>
+<code><a href="../reference/round_time.html">round_time()</a></code> is now a S3 generic.</li>
+<li>
+<code>shortest_interval()</code> was renamed to <code><a href="../reference/shorter_interval.html">shorter_interval()</a></code>
+</li>
+<li>Several functions were optimized.</li>
+<li>The test suite was optimized.</li>
+</ul>
+</div>
+<div id="fixed" class="section level2">
+<h2 class="hasAnchor">
+<a href="#fixed" class="anchor"></a>Fixed</h2>
+<ul>
+<li>Several typos were fixed in the documentation.</li>
+</ul>
+</div>
 </div>
     <div id="mctq-0009000" class="section level1">
 <h1 class="page-header" data-toc-text="0.0.0.9000">

@@ -75,7 +75,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/gipsousp/mctq/">
+  <a href="https://github.com/gipso/mctq/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -96,7 +96,7 @@
       <h1 data-toc-skip>Introduction to mctq</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/gipsousp/mctq/blob/master/vignettes/mctq.Rmd"><code>vignettes/mctq.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/gipso/mctq/blob/master/vignettes/mctq.Rmd"><code>vignettes/mctq.Rmd</code></a></small>
       <div class="hidden name"><code>mctq.Rmd</code></div>
 
     </div>
@@ -116,10 +116,10 @@
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span></code></pre></div>
 <p>After <code>pak</code> is installed, install <code>mctq</code> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="http://pak.r-lib.org/reference/pkg_install.html">pkg_install</a></span><span class="op">(</span><span class="st">"gipsousp/mctq"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="http://pak.r-lib.org/reference/pkg_install.html">pkg_install</a></span><span class="op">(</span><span class="st">"gipso/mctq"</span><span class="op">)</span></code></pre></div>
 <p>Great! We now must load the package to memory to start using it. Do this with:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gipsousp.github.io/mctq/">mctq</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gipso.github.io/mctq/">mctq</a></span><span class="op">)</span></code></pre></div>
 <p>Now we just need to get some MCTQ data. For demonstration purposes, we’re going to use a small and fictional raw standard MCTQ data provided by the <code>mctq</code> package.</p>
 <p>This dataset already has valid values. As for any data analysis, you must have clean and valid data before using any analysis tool. If you don’t know how to do that, we strongly recommend checking Hadley Wickham and Garrett Grolemund free and online book <a href="https://r4ds.had.co.nz/">R for data Science</a> and the Coursera course from John Hopkins University <a href="https://www.coursera.org/specializations/data-science-foundations-r">Data Science: Foundations using R</a> (free for audit students).</p>
 <p>Teaching you how to load your data in R is outside the scope of this article. For that, we recommend checking the <a href="https://readr.tidyverse.org/">readr</a> package from <a href="https://www.tidyverse.org/">tidyverse</a>.</p>
@@ -140,7 +140,7 @@
 <p>But first, let’s take a look at the data, shall we? If you’re using <a href="https://rstudio.com/">RStudio</a>, you can run the code above and then type <code><a href="https://rdrr.io/r/utils/View.html">View(data)</a></code> in the console to explore it.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span>
-<span class="co">#&gt; # A tibble: 5 x 20</span>
+<span class="co">#&gt; # A tibble: 5 × 20</span>
 <span class="co">#&gt;   id    work  wd    bt_w  sprep_w slat_w se_w  si_w  alarm_w wake_before_w le_w </span>
 <span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;</span>
 <span class="co">#&gt; 1 1     TRUE  5     22:50 23:20   30     06:55 25    TRUE    FALSE         01:00</span>
@@ -189,14 +189,14 @@
 <p>Our data is now all set to start. Let’s take a look at it.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span>
-<span class="co">#&gt; # A tibble: 5 x 20</span>
-<span class="co">#&gt;      id work     wd bt_w   sprep_w slat_w              se_w  si_w               </span>
-<span class="co">#&gt;   &lt;int&gt; &lt;lgl&gt; &lt;int&gt; &lt;time&gt; &lt;time&gt;  &lt;Duration&gt;          &lt;tim&gt; &lt;Duration&gt;         </span>
-<span class="co">#&gt; 1     1 TRUE      5 22:50  23:20   1800s (~30 minutes) 06:55 1500s (~25 minutes)</span>
-<span class="co">#&gt; 2     2 TRUE      2 21:25  21:30   300s (~5 minutes)   05:05 300s (~5 minutes)  </span>
-<span class="co">#&gt; 3     3 TRUE      5 22:30  23:10   3000s (~50 minutes) 08:00 900s (~15 minutes) </span>
-<span class="co">#&gt; 4     4 TRUE      2 00:45  01:10   900s (~15 minutes)  08:55 1200s (~20 minutes)</span>
-<span class="co">#&gt; 5     5 TRUE      7 22:40  22:40   300s (~5 minutes)   08:20 300s (~5 minutes)  </span>
+<span class="co">#&gt; # A tibble: 5 × 20</span>
+<span class="co">#&gt;      id work     wd bt_w   sprep_w slat_w              se_w   si_w               </span>
+<span class="co">#&gt;   &lt;int&gt; &lt;lgl&gt; &lt;int&gt; &lt;time&gt; &lt;time&gt;  &lt;Duration&gt;          &lt;time&gt; &lt;Duration&gt;         </span>
+<span class="co">#&gt; 1     1 TRUE      5 22:50  23:20   1800s (~30 minutes) 06:55  1500s (~25 minutes)</span>
+<span class="co">#&gt; 2     2 TRUE      2 21:25  21:30   300s (~5 minutes)   05:05  300s (~5 minutes)  </span>
+<span class="co">#&gt; 3     3 TRUE      5 22:30  23:10   3000s (~50 minutes) 08:00  900s (~15 minutes) </span>
+<span class="co">#&gt; 4     4 TRUE      2 00:45  01:10   900s (~15 minutes)  08:55  1200s (~20 minutes)</span>
+<span class="co">#&gt; 5     5 TRUE      7 22:40  22:40   300s (~5 minutes)   08:20  300s (~5 minutes)  </span>
 <span class="co">#&gt; # … with 12 more variables: alarm_w &lt;lgl&gt;, wake_before_w &lt;lgl&gt;,</span>
 <span class="co">#&gt; #   le_w &lt;Duration&gt;, bt_f &lt;time&gt;, sprep_f &lt;time&gt;, slat_f &lt;Duration&gt;,</span>
 <span class="co">#&gt; #   se_f &lt;time&gt;, si_f &lt;Duration&gt;, alarm_f &lt;lgl&gt;, reasons_f &lt;lgl&gt;,</span>
@@ -217,7 +217,7 @@
 
 <span class="co"># Comparing the result</span>
 <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">wd</span>, <span class="va">fd</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 5 x 2</span>
+<span class="co">#&gt; # A tibble: 5 × 2</span>
 <span class="co">#&gt;      wd    fd</span>
 <span class="co">#&gt;   &lt;int&gt; &lt;int&gt;</span>
 <span class="co">#&gt; 1     5     2</span>
@@ -237,7 +237,7 @@
 
 <span class="co"># Comparing the result</span>
 <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">sprep_w</span>, <span class="va">slat_w</span>, <span class="va">so_w</span>, <span class="va">sprep_f</span>, <span class="va">slat_f</span>, <span class="va">so_f</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 5 x 6</span>
+<span class="co">#&gt; # A tibble: 5 × 6</span>
 <span class="co">#&gt;   sprep_w slat_w              so_w   sprep_f slat_f              so_f  </span>
 <span class="co">#&gt;   &lt;time&gt;  &lt;Duration&gt;          &lt;time&gt; &lt;time&gt;  &lt;Duration&gt;          &lt;time&gt;</span>
 <span class="co">#&gt; 1 23:20   1800s (~30 minutes) 23:50  00:15   300s (~5 minutes)   00:20 </span>
@@ -258,7 +258,7 @@
 
 <span class="co"># Comparing the result</span>
 <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">se_w</span>, <span class="va">si_w</span>, <span class="va">gu_w</span>, <span class="va">se_f</span>, <span class="va">si_f</span>, <span class="va">gu_f</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 5 x 6</span>
+<span class="co">#&gt; # A tibble: 5 × 6</span>
 <span class="co">#&gt;   se_w   si_w                gu_w   se_f   si_f                gu_f  </span>
 <span class="co">#&gt;   &lt;time&gt; &lt;Duration&gt;          &lt;time&gt; &lt;time&gt; &lt;Duration&gt;          &lt;time&gt;</span>
 <span class="co">#&gt; 1 06:55  1500s (~25 minutes) 07:20  10:10  1500s (~25 minutes) 10:35 </span>
@@ -278,7 +278,7 @@
 
 <span class="co"># Comparing the result</span>
 <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">so_w</span>, <span class="va">se_w</span>, <span class="va">sd_w</span>, <span class="va">so_f</span>, <span class="va">se_f</span>, <span class="va">sd_f</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 5 x 6</span>
+<span class="co">#&gt; # A tibble: 5 × 6</span>
 <span class="co">#&gt;   so_w   se_w   sd_w                 so_f   se_f   sd_f                </span>
 <span class="co">#&gt;   &lt;time&gt; &lt;time&gt; &lt;Duration&gt;           &lt;time&gt; &lt;time&gt; &lt;Duration&gt;          </span>
 <span class="co">#&gt; 1 23:50  06:55  25500s (~7.08 hours) 00:20  10:10  35400s (~9.83 hours)</span>
@@ -298,7 +298,7 @@
 
 <span class="co"># Comparing the result</span>
 <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">bt_w</span>, <span class="va">gu_w</span>, <span class="va">tbt_w</span>, <span class="va">bt_f</span>, <span class="va">gu_f</span>, <span class="va">tbt_f</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 5 x 6</span>
+<span class="co">#&gt; # A tibble: 5 × 6</span>
 <span class="co">#&gt;   bt_w   gu_w   tbt_w                bt_f   gu_f   tbt_f                </span>
 <span class="co">#&gt;   &lt;time&gt; &lt;time&gt; &lt;Duration&gt;           &lt;time&gt; &lt;time&gt; &lt;Duration&gt;           </span>
 <span class="co">#&gt; 1 22:50  07:20  30600s (~8.5 hours)  23:35  10:35  39600s (~11 hours)   </span>
@@ -318,7 +318,7 @@
 
 <span class="co"># Comparing the result</span>
 <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">so_w</span>, <span class="va">sd_w</span>, <span class="va">msw</span>, <span class="va">so_f</span>, <span class="va">sd_f</span>, <span class="va">msf</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 5 x 6</span>
+<span class="co">#&gt; # A tibble: 5 × 6</span>
 <span class="co">#&gt;   so_w   sd_w                 msw      so_f   sd_f                 msf     </span>
 <span class="co">#&gt;   &lt;time&gt; &lt;Duration&gt;           &lt;time&gt;   &lt;time&gt; &lt;Duration&gt;           &lt;time&gt;  </span>
 <span class="co">#&gt; 1 23:50  25500s (~7.08 hours) 03:22:30 00:20  35400s (~9.83 hours) 05:15:00</span>
@@ -343,7 +343,7 @@
 <span class="co"># Comparing the result</span>
 <span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>sd_week_rounded <span class="op">=</span> <span class="fu">mctq</span><span class="fu">::</span><span class="fu"><a href="../reference/round_time.html">round_time</a></span><span class="op">(</span><span class="va">sd_week</span><span class="op">)</span><span class="op">)</span>
 <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">wd</span>, <span class="va">sd_w</span>, <span class="va">fd</span>, <span class="va">sd_f</span>, <span class="va">sd_week_rounded</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 5 x 5</span>
+<span class="co">#&gt; # A tibble: 5 × 5</span>
 <span class="co">#&gt;      wd sd_w                    fd sd_f                 sd_week_rounded     </span>
 <span class="co">#&gt;   &lt;int&gt; &lt;Duration&gt;           &lt;int&gt; &lt;Duration&gt;           &lt;Duration&gt;          </span>
 <span class="co">#&gt; 1     5 25500s (~7.08 hours)     2 35400s (~9.83 hours) 28329s (~7.87 hours)</span>
@@ -364,7 +364,7 @@
 <span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>
   sloss_week_rounded <span class="op">=</span> <span class="fu">mctq</span><span class="fu">::</span><span class="fu"><a href="../reference/round_time.html">round_time</a></span><span class="op">(</span><span class="va">sloss_week</span><span class="op">)</span><span class="op">)</span>
 <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">wd</span>, <span class="va">sd_w</span>, <span class="va">fd</span>, <span class="va">sd_f</span>, <span class="va">sloss_week_rounded</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 5 x 5</span>
+<span class="co">#&gt; # A tibble: 5 × 5</span>
 <span class="co">#&gt;      wd sd_w                    fd sd_f                 sloss_week_rounded    </span>
 <span class="co">#&gt;   &lt;int&gt; &lt;Duration&gt;           &lt;int&gt; &lt;Duration&gt;           &lt;Duration&gt;            </span>
 <span class="co">#&gt; 1     5 25500s (~7.08 hours)     2 35400s (~9.83 hours) 14143s (~3.93 hours)  </span>
@@ -385,7 +385,7 @@
 <span class="co"># Comparing the result</span>
 <span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>le_week_rounded <span class="op">=</span> <span class="fu">mctq</span><span class="fu">::</span><span class="fu"><a href="../reference/round_time.html">round_time</a></span><span class="op">(</span><span class="va">le_week</span><span class="op">)</span><span class="op">)</span>
 <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">wd</span>, <span class="va">le_w</span>, <span class="va">fd</span>, <span class="va">le_f</span>, <span class="va">le_week_rounded</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 5 x 5</span>
+<span class="co">#&gt; # A tibble: 5 × 5</span>
 <span class="co">#&gt;      wd le_w                   fd le_f                 le_week_rounded     </span>
 <span class="co">#&gt;   &lt;int&gt; &lt;Duration&gt;          &lt;int&gt; &lt;Duration&gt;           &lt;Duration&gt;          </span>
 <span class="co">#&gt; 1     5 3600s (~1 hours)        2 12000s (~3.33 hours) 6000s (~1.67 hours) </span>
@@ -408,7 +408,7 @@
 <span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>
   msf_sc_rounded <span class="op">=</span> <span class="fu">mctq</span><span class="fu">::</span><span class="fu"><a href="../reference/round_time.html">round_time</a></span><span class="op">(</span><span class="va">msf_sc</span><span class="op">)</span><span class="op">)</span>
 <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">msf</span>, <span class="va">msf_sc_rounded</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 5 x 2</span>
+<span class="co">#&gt; # A tibble: 5 × 2</span>
 <span class="co">#&gt;   msf      msf_sc_rounded</span>
 <span class="co">#&gt;   &lt;time&gt;   &lt;time&gt;        </span>
 <span class="co">#&gt; 1 05:15:00 04:16:04      </span>
@@ -429,7 +429,7 @@
 
 <span class="co"># Comparing the result</span>
 <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">msw</span>, <span class="va">msf</span>, <span class="va">sjl_rel</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 5 x 3</span>
+<span class="co">#&gt; # A tibble: 5 × 3</span>
 <span class="co">#&gt;   msw      msf      sjl_rel              </span>
 <span class="co">#&gt;   &lt;time&gt;   &lt;time&gt;   &lt;Duration&gt;           </span>
 <span class="co">#&gt; 1 03:22:30 05:15:00 6750s (~1.88 hours)  </span>
@@ -448,7 +448,7 @@
 
 <span class="co"># Comparing the result</span>
 <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">sjl_rel</span>, <span class="va">sjl</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 5 x 2</span>
+<span class="co">#&gt; # A tibble: 5 × 2</span>
 <span class="co">#&gt;   sjl_rel               sjl                  </span>
 <span class="co">#&gt;   &lt;Duration&gt;            &lt;Duration&gt;           </span>
 <span class="co">#&gt; 1 6750s (~1.88 hours)   6750s (~1.88 hours)  </span>
@@ -479,7 +479,7 @@
 <p>And our final dataset is …</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span>
-<span class="co">#&gt; # A tibble: 5 x 37</span>
+<span class="co">#&gt; # A tibble: 5 × 37</span>
 <span class="co">#&gt;      id work     wd    fd bt_w   sprep_w slat_w              so_w   se_w  </span>
 <span class="co">#&gt;   &lt;int&gt; &lt;lgl&gt; &lt;int&gt; &lt;int&gt; &lt;time&gt; &lt;time&gt;  &lt;Duration&gt;          &lt;time&gt; &lt;time&gt;</span>
 <span class="co">#&gt; 1     1 TRUE      5     2 22:50  23:20   1800s (~30 minutes) 23:50  06:55 </span>
@@ -498,14 +498,14 @@
 <p>If you don’t feel comfortable with the way <code>Duration</code> objects are printed, <code>mctq</code> provides a utility function to help you. Just use <code><a href="../reference/pretty_mctq.html">pretty_mctq()</a></code> to get a better view.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/pretty_mctq.html">pretty_mctq</a></span><span class="op">(</span><span class="va">data</span>, round <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 5 x 37</span>
-<span class="co">#&gt;      id work     wd    fd bt_w   sprep_w slat_w so_w  se_w  si_w   gu_w  alarm_w</span>
-<span class="co">#&gt;   &lt;int&gt; &lt;lgl&gt; &lt;int&gt; &lt;int&gt; &lt;time&gt; &lt;time&gt;  &lt;time&gt; &lt;tim&gt; &lt;tim&gt; &lt;time&gt; &lt;tim&gt; &lt;lgl&gt;  </span>
-<span class="co">#&gt; 1     1 TRUE      5     2 22:50  23:20   30'00" 23:50 06:55 25'00" 07:20 TRUE   </span>
-<span class="co">#&gt; 2     2 TRUE      2     5 21:25  21:30   05'00" 21:35 05:05 05'00" 05:10 TRUE   </span>
-<span class="co">#&gt; 3     3 TRUE      5     2 22:30  23:10   50'00" 00:00 08:00 15'00" 08:15 TRUE   </span>
-<span class="co">#&gt; 4     4 TRUE      2     5 00:45  01:10   15'00" 01:25 08:55 20'00" 09:15 TRUE   </span>
-<span class="co">#&gt; 5     5 TRUE      7     0 22:40  22:40   05'00" 22:45 08:20 05'00" 08:25 TRUE   </span>
+<span class="co">#&gt; # A tibble: 5 × 37</span>
+<span class="co">#&gt;      id work     wd    fd bt_w   sprep_w slat_w so_w   se_w   si_w   gu_w  alarm_w</span>
+<span class="co">#&gt;   &lt;int&gt; &lt;lgl&gt; &lt;int&gt; &lt;int&gt; &lt;time&gt; &lt;time&gt;  &lt;time&gt; &lt;time&gt; &lt;time&gt; &lt;time&gt; &lt;tim&gt; &lt;lgl&gt;  </span>
+<span class="co">#&gt; 1     1 TRUE      5     2 22:50  23:20   30'00" 23:50  06:55  25'00" 07:20 TRUE   </span>
+<span class="co">#&gt; 2     2 TRUE      2     5 21:25  21:30   05'00" 21:35  05:05  05'00" 05:10 TRUE   </span>
+<span class="co">#&gt; 3     3 TRUE      5     2 22:30  23:10   50'00" 00:00  08:00  15'00" 08:15 TRUE   </span>
+<span class="co">#&gt; 4     4 TRUE      2     5 00:45  01:10   15'00" 01:25  08:55  20'00" 09:15 TRUE   </span>
+<span class="co">#&gt; 5     5 TRUE      7     0 22:40  22:40   05'00" 22:45  08:20  05'00" 08:25 TRUE   </span>
 <span class="co">#&gt; # … with 25 more variables: wake_before_w &lt;lgl&gt;, sd_w &lt;time&gt;, tbt_w &lt;time&gt;,</span>
 <span class="co">#&gt; #   le_w &lt;time&gt;, msw &lt;time&gt;, bt_f &lt;time&gt;, sprep_f &lt;time&gt;, slat_f &lt;time&gt;,</span>
 <span class="co">#&gt; #   so_f &lt;time&gt;, se_f &lt;time&gt;, si_f &lt;time&gt;, gu_f &lt;time&gt;, alarm_f &lt;lgl&gt;,</span>
